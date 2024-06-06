@@ -24,82 +24,24 @@
         </div>
         <div class="flex flex-col justify-between items-start gap-10 p-6 py-10">
             <div class="flex flex-col justify-between gap-10 px-20">
-                <div class="flex justify-between items-center gap-5">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1591193686104-fddba4d0e4d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="" width="300" class="rounded-lg hidden lg:flex">
+                @foreach ($posts as $post)
+                    <div class="flex items-center gap-5">
+                        <div>
+                            <img src="{{ Storage::url($post->image) }}" alt="" width="300"
+                                class="rounded-lg hidden lg:flex aspect-square">
+                        </div>
+                        <div>
+                            <a href="{{ route('user.detailBlog', $post->id) }}"
+                                class="font-bold text-xl lg:text-2xl mb-5">{{ $post->title }}</a>
+                            <p class="mb-4 text-sm lg:text-lg text-[#404040]  mt-5">
+                                {{ implode(' ', array_slice(explode(' ', $post->content), 0, 10)) }}{{ count(explode(' ', $post->content)) > 10 ? '...' : '' }}
+                            </p>
+                            <span class="text-sm text-[#404040]">
+                                {{ $post->user->username }} - {{ $post->created_at->diffForHumans() }}
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        <a href="#" class="font-bold text-xl lg:text-2xl mb-5">Mengenal Daur Ulang: Upaya Penting
-                            dalam Mengatasi
-                            Krisis Sampah
-                            Plastik
-                        </a>
-                        <p class="mb-4 text-sm lg:text-lg text-[#404040]  mt-5">
-                            Selain manfaat lingkungan, daur ulang juga memiliki implikasi ekonomi yang signifikan.
-                        </p>
-                        <span class="text-sm text-[#404040]">
-                            Andrew Garcia - 14 Apr 2024
-                        </span>
-                    </div>
-                </div>
-                <div class="flex justify-between items-center gap-5">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1591193686104-fddba4d0e4d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="" width="300" class="rounded-lg hidden lg:flex">
-                    </div>
-                    <div>
-                        <a href="#" class="font-bold text-xl lg:text-2xl mb-5">Mengenal Daur Ulang: Upaya Penting
-                            dalam Mengatasi
-                            Krisis Sampah
-                            Plastik
-                        </a>
-                        <p class="mb-4 text-sm lg:text-lg text-[#404040]  mt-5">
-                            Selain manfaat lingkungan, daur ulang juga memiliki implikasi ekonomi yang signifikan.
-                        </p>
-                        <span class="text-sm text-[#404040]">
-                            Andrew Garcia - 14 Apr 2024
-                        </span>
-                    </div>
-                </div>
-                <div class="flex justify-between items-center gap-5">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1591193686104-fddba4d0e4d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="" width="300" class="rounded-lg hidden lg:flex">
-                    </div>
-                    <div>
-                        <a href="#" class="font-bold text-xl lg:text-2xl mb-5">Mengenal Daur Ulang: Upaya Penting
-                            dalam Mengatasi
-                            Krisis Sampah
-                            Plastik
-                        </a>
-                        <p class="mb-4 text-sm lg:text-lg text-[#404040]  mt-5">
-                            Selain manfaat lingkungan, daur ulang juga memiliki implikasi ekonomi yang signifikan.
-                        </p>
-                        <span class="text-sm text-[#404040]">
-                            Andrew Garcia - 14 Apr 2024
-                        </span>
-                    </div>
-                </div>
-                <div class="flex justify-between items-center gap-5">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1591193686104-fddba4d0e4d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="" width="300" class="rounded-lg hidden lg:flex">
-                    </div>
-                    <div>
-                        <a href="#" class="font-bold text-xl lg:text-2xl">Mengenal Daur Ulang: Upaya Penting
-                            dalam Mengatasi
-                            Krisis Sampah
-                            Plastik
-                        </a>
-                        <p class="mb-4 text-sm lg:text-lg text-[#404040] mt-5">
-                            Selain manfaat lingkungan, daur ulang juga memiliki implikasi ekonomi yang signifikan.
-                        </p>
-                        <span class="text-sm text-[#404040]">
-                            Andrew Garcia - 14 Apr 2024
-                        </span>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
