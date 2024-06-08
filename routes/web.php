@@ -47,7 +47,10 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
 // admin user
 Route::get('/admin/kelolaUser', [AdminKelolaUserController::class, 'index'])->name('admin.kelolaUser');
-Route::get('/admin/kelolaUser/create', [AdminKelolaUserController::class, 'create'])->name('admin.kelolaUser.create');
+Route::get('/admin/kelolaUser/show/{id}', [AdminKelolaUserController::class, 'show'])->name('admin.kelolaUser.show');
+Route::get('/admin/kelolaUser/edit/{id}', [AdminKelolaUserController::class, 'edit'])->name('admin.kelolaUser.edit');
+Route::put('/admin/kelolaUser/update/{id}', [AdminKelolaUserController::class, 'update'])->name('admin.kelolaUser.update');
+Route::delete('/admin/kelolaUser/delete/{id}', [AdminKelolaUserController::class, 'destroy'])->name('admin.kelolaUser.delete');
 
 // admin kelola artikel
 Route::get('/admin/kelolaArtikel', [AdminKelolaArtikelController::class, 'index'])->name('admin.kelolaArtikel');
@@ -60,7 +63,15 @@ Route::delete('/admin/kelolaArtikel/delete/{id}', [AdminKelolaArtikelController:
 // admin kelola sampah
 Route::get('/admin/kelolaSampah', [AdminKelolaSampahController::class, 'index'])->name('admin.kelolaSampah');
 Route::get('/admin/kelolaSampah/create', [AdminKelolaSampahController::class, 'create'])->name('admin.kelolaSampah.create');
+Route::post('/admin/kelolaSampah/store', [AdminKelolaSampahController::class, 'store'])->name('admin.kelolaSampah.store');
+Route::get('/admin/kelolaSampah/edit/{id}', [AdminKelolaSampahController::class, 'edit'])->name('admin.kelolaSampah.edit');
+Route::put('/admin/kelolaSampah/update/{id}', [AdminKelolaSampahController::class, 'update'])->name('admin.kelolaSampah.update');
+Route::delete('/admin/kelolaSampah/delete/{id}', [AdminKelolaSampahController::class, 'destroy'])->name('admin.kelolaSampah.destroy');
 
 // admin kelola poin
 Route::get('/admin/kelolaPoin', [AdminKelolaPoinController::class, 'index'])->name('admin.kelolaPoin');
 Route::get('/admin/kelolaPoin/create', [AdminKelolaPoinController::class, 'create'])->name('admin.kelolaPoin.create');
+Route::post('/admin/kelolaPoin/store', [AdminKelolaPoinController::class, 'store'])->name('admin.kelolaPoin.store');
+Route::get('/admin/kelolaPoin/edit/{id}', [AdminKelolaPoinController::class, 'edit'])->name('admin.kelolaPoin.edit');
+Route::put('/admin/kelolaPoin/update/{id}', [AdminKelolaPoinController::class, 'update'])->name('admin.kelolaPoin.update');
+Route::delete('/admin/kelolaPoin/delete/{id}', [AdminKelolaPoinController::class, 'destroy'])->name('admin.kelolaPoin.destroy');

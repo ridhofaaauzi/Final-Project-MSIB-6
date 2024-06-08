@@ -11,13 +11,4 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
-
-    public function kelolaSampah()
-    {
-        return view('admin.kelolaSampah');
-    }
-    public function kelolaPoin()
-    {
-        return view('admin.kelolaPoin');
-    }
 }

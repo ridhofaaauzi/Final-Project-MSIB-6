@@ -68,7 +68,6 @@ class AdminKelolaArtikelController extends Controller
                 $post->image = $imagePath;
             }
 
-            // Update other fields
             $post->title = $request->input("title");
             $post->content = $request->input("content");
             $post->save();

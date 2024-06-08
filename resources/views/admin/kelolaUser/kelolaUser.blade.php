@@ -7,13 +7,15 @@
                     <div
                         class="relative flex flex-col min-w-0 mb-6 break-words min-h-svh bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                         <div class="p-6 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                            <h6 class="font-bold" style="font-size: 32px">Create Artikel</h6>
+                            <h6 class="font-bold" style="font-size: 32px">Kelola User</h6>
                         </div>
-                        <div class="mb-4 px-5">
-                            <a href="{{ route('admin.kelolaArtikel.create') }}"
-                                class="focus:outline-none text-white bg-primary font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Create
-                                Artikel</a>
-                        </div>
+                        @if (session('success'))
+                            <div class="px-4 mt-3 mb-3">
+                                <div class="w-[300px] flex bg-primary p-4 rounded">
+                                    <div class="text-white">{{ session('success') }}</div>
+                                </div>
+                            </div>
+                        @endif
                         <div class="flex-auto px-0 pt-0 pb-2">
                             <div class="p-0 overflow-x-auto">
                                 <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
@@ -62,9 +64,12 @@
                                                 <td
                                                     class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                     <div class="flex justify-center space-x-2">
-                                                        <a href="#"
+                                                        <a href="{{ route('admin.kelolaUser.show', $user->id) }}"
+                                                            class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">Details</a>
+                                                        <a href="{{ route('admin.kelolaUser.edit', $user->id) }}"
                                                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
-                                                        <form action="" method="POST">
+                                                        <form action="{{ route('admin.kelolaUser.delete', $user->id) }}"
+                                                            method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"

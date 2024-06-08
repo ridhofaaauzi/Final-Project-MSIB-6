@@ -7,7 +7,7 @@
                     <div
                         class="relative flex flex-col min-w-0 mb-6 break-words min-h-svh bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
                         <div class="p-6 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                            <h6 class="font-bold" style="font-size: 32px">Create Artikel</h6>
+                            <h6 class="font-bold" style="font-size: 32px">Kelola Artikel</h6>
                         </div>
                         <div class="mb-4 px-5">
                             <a href="{{ route('admin.kelolaArtikel.create') }}"
