@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rewards', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('poin');
+            $table->integer('poin')->default(0);
             $table->string('image');
             $table->timestamps();
         });

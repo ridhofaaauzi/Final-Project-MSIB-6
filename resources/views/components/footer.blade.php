@@ -27,10 +27,10 @@
                             <h4 class="text-lg font-bold">Layanan</h4>
                         </li>
                         <li>
-                            <a href="#" class="text-md">Artikel</a>
+                            <a href="{{ route('user.blog') }}" class="text-md">Artikel</a>
                         </li>
                         <li>
-                            <a href="#" class="text-md">Tukar Sampah</a>
+                            <a href="{{ route('user.penukaranSampah') }}" class="text-md">Tukar Sampah</a>
                         </li>
                     </ul>
                 </div>
@@ -40,10 +40,10 @@
                             <h4 class="text-lg font-bold">About</h4>
                         </li>
                         <li>
-                            <a href="#" class="text-md">Tentang Kami</a>
+                            <a href="{{ route('user.tentangKami') }}" class="text-md">Tentang Kami</a>
                         </li>
                         <li>
-                            <a href="#" class="text-md">Kontak Kami</a>
+                            <a href="{{ route('user.tentangKami') }}" class="text-md">Kontak Kami</a>
                         </li>
                     </ul>
                 </div>
@@ -53,9 +53,6 @@
                             <h4 class="text-lg font-bold">Sosial Media</h4>
                         </li>
                         <li>
-                            <a href="#" class="text-md">
-
-                            </a>
                         </li>
                         <li class="flex gap-5">
                             <a href="#">

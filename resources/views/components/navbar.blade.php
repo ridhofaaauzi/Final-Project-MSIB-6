@@ -1,5 +1,5 @@
 <header>
-    <nav class="flex justify-around items-center w-[92%] mx-auto">
+    <nav class="flex justify-between items-center w-[92%] mx-auto px-10">
         <div>
             <a href="{{ route('user.index') }}">
                 <img src="{{ asset('assets/images/logo/logo.png') }}" alt="Logo" class="lg:max-w-52 max-w-40">

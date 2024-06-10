@@ -14,4 +14,9 @@ class Waste extends Model
         'poin',
         'image',
     ];
+
+    public function transactionWaste()
+    {
+        return $this->hasMany(TransactionWaste::class)->latest();
+    }
 }
