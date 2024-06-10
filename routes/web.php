@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\AdminKelolaUserController;
 use App\Http\Controllers\Authentication\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\penukaranPoinController;
+use App\Http\Controllers\PenukaranSampahController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,19 +31,25 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login/loginPost', [AuthController::class, 'loginPost'])->name('loginPost');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// users
+// Homepage
 Route::get('/', [HomeController::class, 'index'])->name('user.index');
+Route::get('/tentangKami', [HomeController::class, 'about'])->name('user.tentangKami');
+Route::get('/kontak', [HomeController::class, 'contact'])->name('user.kontak');
+
+// users
+Route::get('/profile/{id}', [UserController::class, 'show'])->name('user.profile');
+Route::put('/profile/update/{id}', [UserController::class, 'update'])->name('user.profile.update');
 
 // blogs
 Route::get('/blog', [BlogController::class, 'index'])->name('user.blog');
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('user.detailBlog');
 
-Route::get('/tentangkami', [HomeController::class, 'about'])->name('user.tentangKami');
-Route::get('/kontak', [HomeController::class, 'contact'])->name('user.kontak');
-Route::get('/penukaransampah', [HomeController::class, 'penukaranSampah'])->name('user.penukaranSampah');
-Route::get('/profile', [HomeController::class, 'profile'])->name('user.profile');
-Route::get('/pickup', [HomeController::class, 'pickup'])->name('user.pickup');
-Route::get('/tukarPoin', [HomeController::class, 'tukarPoin'])->name('user.tukarPoin');
+// penukaran sampah
+Route::get('/penukaranSampah', [PenukaranSampahController::class, 'index'])->name('user.penukaranSampah');
+Route::get('/pickup', [PenukaranSampahController::class, 'pickup'])->name('user.pickup');
+
+// penukaran poin
+Route::get('/penukaranPoin', [penukaranPoinController::class, 'index'])->name('user.penukaranPoin');
 
 // admin
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');

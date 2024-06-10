@@ -15,7 +15,7 @@
                         </div>
                         <div class="flex-auto px-0 pt-0 pb-2">
                             <div class="p-0 overflow-x-auto">
-                                <form class="px-5" action="{{ route('admin.kelolaPoin.update', $point->id) }}"
+                                <form class="px-5" action="{{ route('admin.kelolaPoin.update', $reward->id) }}"
                                     method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -23,7 +23,7 @@
                                         <label for="name" class="block mb-2 text-sm font-medium">Name</label>
                                         <input type="text" name="name" id="name"
                                             class="bg-gray-50 border border-gray-300 rounded w-full p-2.5"
-                                            placeholder="Masukkan jenis sampah Anda" value="{{ $point->name }}" />
+                                            placeholder="Masukkan jenis sampah Anda" value="{{ $reward->name }}" />
                                         @error('name')
                                             <div class="text-red-600 mt-2">{{ $message }}</div>
                                         @enderror
@@ -32,7 +32,7 @@
                                         <label for="poin" class="block mb-2 text-sm font-medium">Poin</label>
                                         <input type="number" name="poin" id="poin"
                                             class="bg-gray-50 border border-gray-300 rounded w-full p-2.5"
-                                            placeholder="Masukkan poin sampah Anda" value="{{ $point->poin }}" />
+                                            placeholder="Masukkan poin sampah Anda" value="{{ $reward->poin }}" />
                                         @error('poin')
                                             <div class="text-red-600 mt-2">{{ $message }}</div>
                                         @enderror

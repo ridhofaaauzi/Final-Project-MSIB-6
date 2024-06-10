@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PointCreateRequest;
 use App\Models\Point;
+use App\Models\Reward;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -13,8 +14,8 @@ class AdminKelolaPoinController extends Controller
 {
     public function index()
     {
-        $points = Point::latest()->get();
-        return view('admin.kelolaPoin.kelolaPoin', compact('points'));
+        $rewards = Reward::latest()->get();
+        return view('admin.kelolaPoin.kelolaPoin', compact('rewards'));
     }
 
     public function create()
@@ -30,7 +31,7 @@ class AdminKelolaPoinController extends Controller
                 $imagePath = $request->file('image')->store('images', 'public');
             }
 
-            Point::create([
+            Reward::create([
                 'name' => $request->input("name"),
                 'poin' => $request->input("poin"),
                 'image' => $imagePath,
@@ -46,30 +47,30 @@ class AdminKelolaPoinController extends Controller
 
     public function edit($id)
     {
-        $point = Point::findOrFail($id);
-        return view('admin.kelolaPoin.edit', compact('point'));
+        $reward = Reward::findOrFail($id);
+        return view('admin.kelolaPoin.edit', compact('reward'));
     }
     public function update(PointCreateRequest $request, $id)
     {
         try {
-            $Point = Point::findOrFail($id);
+            $reward = Reward::findOrFail($id);
 
             if ($request->hasFile('image')) {
-                Storage::disk('public')->delete($Point->image);
+                Storage::disk('public')->delete($reward->image);
                 $imagePath = $request->file('image')->store('images', 'public');
-                $Point->image = $imagePath;
+                $reward->image = $imagePath;
             }
 
-            $Point->name = $request->input("name");
-            $Point->poin = $request->input("poin");
-            $Point->save();
+            $reward->name = $request->input("name");
+            $reward->poin = $request->input("poin");
+            $reward->save();
 
-            return redirect()->route('admin.kelolaPoin')->with('success', 'Point updated successfully');
+            return redirect()->route('admin.kelolaPoin')->with('success', 'Reward updated successfully');
         } catch (\Throwable $th) {
-            Log::error('Failed to update Point', ['error' => $th->getMessage()]);
+            Log::error('Failed to update Reward', ['error' => $th->getMessage()]);
 
             return redirect()->back()->with([
-                'error' => 'Failed to update Point',
+                'error' => 'Failed to update Reward',
                 'info' => $th->getMessage()
             ]);
         }
@@ -78,19 +79,19 @@ class AdminKelolaPoinController extends Controller
     public function destroy($id)
     {
         try {
-            $point = Point::findOrFail($id);
-            if ($point->image) {
-                Storage::disk('public')->delete($point->image);
+            $reward = Reward::findOrFail($id);
+            if ($reward->image) {
+                Storage::disk('public')->delete($reward->image);
             }
 
-            $point->delete();
+            $reward->delete();
 
-            return redirect()->route('admin.kelolaPoin')->with('success', 'point deleted successfully');
+            return redirect()->route('admin.kelolaPoin')->with('success', 'reward deleted successfully');
         } catch (\Throwable $th) {
-            Log::error('Failed to delete point', ['error' => $th->getMessage()]);
+            Log::error('Failed to delete reward', ['error' => $th->getMessage()]);
 
             return redirect()->back()->with([
-                'error' => 'Failed to delete point',
+                'error' => 'Failed to delete reward',
                 'info' => $th->getMessage()
             ]);
         }

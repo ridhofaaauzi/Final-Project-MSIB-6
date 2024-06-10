@@ -38,14 +38,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($points as $point)
+                                        @foreach ($rewards as $reward)
                                             <tr>
                                                 <td
                                                     class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                     <div class="flex px-2 py-1">
                                                         <div class="flex flex-col justify-center">
                                                             <h6 class="mb-0 text-sm leading-normal">
-                                                                {{ $point->name }}
+                                                                {{ $reward->name }}
                                                             </h6>
                                                         </div>
                                                     </div>
@@ -53,20 +53,20 @@
                                                 <td
                                                     class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                     <p class="mb-0 text-xs font-semibold leading-tight">
-                                                        {{ $point->poin }}
+                                                        {{ $reward->poin }}
                                                     </p>
                                                 </td>
                                                 <td
                                                     class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent flex justify-center">
-                                                    <img src="{{ Storage::url($point->image) }}" alt=""
+                                                    <img src="{{ Storage::url($reward->image) }}" alt=""
                                                         width="100">
                                                 </td>
                                                 <td
                                                     class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                     <div class="flex justify-center space-x-2">
-                                                        <a href="{{ route('admin.kelolaPoin.edit', $point->id) }}"
+                                                        <a href="{{ route('admin.kelolaPoin.edit', $reward->id) }}"
                                                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Edit</a>
-                                                        <form action="{{ route('admin.kelolaPoin.destroy', $point->id) }}"
+                                                        <form action="{{ route('admin.kelolaPoin.destroy', $reward->id) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')

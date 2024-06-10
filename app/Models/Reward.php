@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Point extends Model
+class Reward extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'total_poin',
-        'user_id',
+        'name',
+        'poin',
+        'image'
     ];
 }

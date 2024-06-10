@@ -24,7 +24,7 @@
                                     Sampah</a>
                             </li>
                             <li>
-                                <a href="{{ route('user.tukarPoin') }}"
+                                <a href="{{ route('user.penukaranPoin') }}"
                                     class="flex p-2 text-gray-600 rounded-md hover:text-primary">Tukar
                                     Poin</a>
                             </li>
@@ -54,10 +54,12 @@
                             <a href="{{ route('admin.index') }}"><i class="fa-solid fa-gauge fa-lg"></i> Dashboard</a>
                         </div>
                         <div class="cursor-pointer hover:bg-primary p-4 hover:text-white ">
-                            <a href="{{ route('user.profile') }}"><i class="fa-solid fa-user fa-lg"></i> Profile</a>
+                            <a href="{{ route('user.profile', auth()->user()->id) }}"><i class="fa-solid fa-user fa-lg"></i>
+                                Profile</a>
                         </div>
                         <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
-                            <a href="{{ route('user.tukarPoin') }}"><i class="fa-solid fa-hand-point-up fa-lg"></i> Tukar
+                            <a href="{{ route('user.penukaranPoin') }}"><i class="fa-solid fa-hand-point-up fa-lg"></i>
+                                Tukar
                                 Poin</a>
                         </div>
                         <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
