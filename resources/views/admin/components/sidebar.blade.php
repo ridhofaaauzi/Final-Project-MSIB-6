@@ -39,6 +39,20 @@
                    </a>
                </li>
                <li class="mt-0.5 w-full mb-4">
+                   <a class="py-2.7 my-0 mx-4 flex items-center whitespace-nowrap rounded-lg {{ request()->routeIs('admin.penukaranSampah') ? 'bg-primary text-white' : '' }} px-4 font-semibold"
+                       href="{{ route('admin.penukaranSampah') }}">
+                       <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Kelola Penukaran
+                           <br />Sampah</span>
+                   </a>
+               </li>
+               <li class="mt-0.5 w-full mb-4">
+                   <a class="py-2.7 my-0 mx-4 flex items-center whitespace-nowrap rounded-lg {{ request()->routeIs('admin.penukaranPoin') ? 'bg-primary text-white' : '' }} px-4 font-semibold"
+                       href="{{ route('admin.penukaranPoin') }}">
+                       <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Kelola Penukaran
+                           <br />Poin</span>
+                   </a>
+               </li>
+               <li class="mt-0.5 w-full mb-4">
                    <a class="py-2.7 my-0 mx-4 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold"
                        href="{{ route('logout') }}">
                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Logout</span>

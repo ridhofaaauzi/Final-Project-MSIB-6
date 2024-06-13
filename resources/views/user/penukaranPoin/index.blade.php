@@ -24,8 +24,12 @@
                                 {{ $reward->poin }} Poin
                             </p>
                             <div class="flex w-full">
-                                <a href="#"
-                                    class="bg-primary px-4 py-2 w-full text-white text-center rounded-lg">Tukar</a>
+                                <form action="{{ route('user.penukaranPoin.store', $reward->id) }}" method="POST"
+                                    class="w-full">
+                                    @csrf
+                                    <button type="submit"
+                                        class="bg-primary w-full p-2 text-white rounded-lg">Tukarkan</button>
+                                </form>
                             </div>
                         </div>
                     </div>

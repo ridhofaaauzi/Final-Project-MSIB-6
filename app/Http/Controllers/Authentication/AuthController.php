@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Authentication;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginUserCreateRequest;
 use App\Http\Requests\RegisterUserCreateRequest;
+use App\Models\Point;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,12 +22,17 @@ class AuthController extends Controller
     public function registerPost(RegisterUserCreateRequest $request)
     {
         try {
-            User::create([
+            $user = User::create([
                 'username' => $request->username,
                 'email' => $request->email,
                 'nohp' => $request->nohp,
                 'alamat' => $request->alamat,
                 'password' => Hash::make($request->password),
+            ]);
+
+            Point::create([
+                'total_poin' => 0,
+                'user_id' => $user->id
             ]);
 
             return redirect()->route('login')

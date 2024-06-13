@@ -43,7 +43,7 @@
                         <label for="poin" class="block mb-2 text-sm font-medium text-gray-900">Poin</label>
                         <input type="number" name="poin" id="poin"
                             class="w-full border-2 border-[#dcdcdc] rounded-lg opacity-65 focus:outline-none focus:border-primary focus:ring-primary p-2"
-                            value="{{ $user->poin }}" disabled>
+                            value="{{ $user->points->total_poin }}" disabled>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="alamat" class="block mb-2 text-sm font-medium text-gray-900">Alamat</label>

@@ -54,4 +54,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(TransactionWaste::class)->latest();
     }
+    public function redemption()
+    {
+        return $this->hasMany(Redemption::class)->latest();
+    }
+
+    public function points()
+    {
+        return $this->hasOne(Point::class)->latest();
+    }
 }

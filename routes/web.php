@@ -10,6 +10,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\penukaranPoinController;
 use App\Http\Controllers\PenukaranSampahController;
+use App\Http\Controllers\RedemptionController;
+use App\Http\Controllers\TransactionWasteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,10 +48,17 @@ Route::get('/blog/{id}', [BlogController::class, 'show'])->name('user.detailBlog
 
 // penukaran sampah
 Route::get('/penukaranSampah', [PenukaranSampahController::class, 'index'])->name('user.penukaranSampah');
-Route::get('/pickup', [PenukaranSampahController::class, 'pickup'])->name('user.pickup');
+Route::get('/penukaranSampah/create/{id}', [PenukaranSampahController::class, 'create'])->name('user.penukaranSampah.create');
+Route::post('/penukaranSampah/store/{id}', [PenukaranSampahController::class, 'store'])->name('user.penukaranSampah.store');
+Route::delete('/penukaranSampah/delete', [PenukaranSampahController::class, 'destroy'])->name('user.penukaranSampah.delete');
+
+// detail penukaran sampah
+// Route::get('/detailPenukaranSampah', [TransactionWasteController::class, 'show'])->name('user.detailPenukaranSampah.show');
+
 
 // penukaran poin
 Route::get('/penukaranPoin', [penukaranPoinController::class, 'index'])->name('user.penukaranPoin');
+Route::post('/penukaranPoin/store/{id}', [RedemptionController::class, 'store'])->name('user.penukaranPoin.store');
 
 // admin
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
@@ -84,3 +93,10 @@ Route::post('/admin/kelolaPoin/store', [AdminKelolaPoinController::class, 'store
 Route::get('/admin/kelolaPoin/edit/{id}', [AdminKelolaPoinController::class, 'edit'])->name('admin.kelolaPoin.edit');
 Route::put('/admin/kelolaPoin/update/{id}', [AdminKelolaPoinController::class, 'update'])->name('admin.kelolaPoin.update');
 Route::delete('/admin/kelolaPoin/delete/{id}', [AdminKelolaPoinController::class, 'destroy'])->name('admin.kelolaPoin.destroy');
+
+
+// admin penukaran sampah
+Route::get('/admin/penukaranSampah', [TransactionWasteController::class, 'index'])->name('admin.penukaranSampah');
+
+// admin penukaran Poin
+Route::get('/admin/penukaranPoin', [RedemptionController::class, 'index'])->name('admin.penukaranPoin');

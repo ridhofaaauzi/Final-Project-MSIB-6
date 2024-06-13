@@ -14,4 +14,9 @@ class Reward extends Model
         'poin',
         'image'
     ];
+
+    public function redemption()
+    {
+        return $this->hasMany(Redemption::class)->latest();
+    }
 }

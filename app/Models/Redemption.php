@@ -5,26 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TransactionWaste extends Model
+class Redemption extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'tanggal_pengambilan',
-        'berat_sampah',
+        'tanggal_penukaran',
         'total_poin',
-        'catatan',
         'user_id',
-        'waste_id',
+        'reward_id',
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->latest();
     }
-
-    public function waste()
+    public function reward()
     {
-        return $this->belongsTo(Waste::class);
+        return $this->belongsTo(Reward::class)->latest();
     }
 }

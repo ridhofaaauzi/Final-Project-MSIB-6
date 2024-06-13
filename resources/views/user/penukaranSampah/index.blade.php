@@ -23,7 +23,7 @@
                         </p>
                     </div>
                     <div class="flex w-full">
-                        <a href="{{ route('user.pickup') }}"
+                        <a href="{{ route('user.penukaranSampah.create', $waste->id) }}"
                             class="bg-primary px-4 py-2 w-full text-white text-center rounded-lg">Tukar</a>
                     </div>
                 </div>

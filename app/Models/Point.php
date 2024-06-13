@@ -13,4 +13,9 @@ class Point extends Model
         'total_poin',
         'user_id',
     ];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class)->latest();
+    }
 }

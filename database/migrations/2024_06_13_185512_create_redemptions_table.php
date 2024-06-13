@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaction_wastes', function (Blueprint $table) {
+        Schema::create('redemptions', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal_pengambilan');
-            $table->integer('berat_sampah');
-            $table->longText('catatan');
-            $table->integer('total_poin');
+            $table->date('tanggal_penukaran');
+            $table->integer('total_poin')->default(0);
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('waste_id')->constrained()->onDelete('cascade');
+            $table->foreignId('reward_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transaction_wastes');
+        Schema::dropIfExists('redemptions');
     }
 };
