@@ -60,8 +60,10 @@
                                             </td>
                                             <td
                                                 class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                                <span
-                                                    class="px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none">{{ $user->role ?? null }}</span>
+                                                @foreach ($user->roles as $role)
+                                                    <span
+                                                        class="px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none">{{ $role->name }}</span>
+                                                @endforeach
                                             </td>
                                             <td
                                                 class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">

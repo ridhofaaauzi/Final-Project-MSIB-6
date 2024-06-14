@@ -50,24 +50,44 @@
                     </div>
                     <div class="rounded border-[2px] border-primary bg-white absolute top-[50px] shadow-md hidden w-[200px]"
                         id="dropdown">
-                        <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
-                            <a href="{{ route('admin.index') }}"><i class="fa-solid fa-gauge fa-lg"></i> Dashboard</a>
-                        </div>
-                        <div class="cursor-pointer hover:bg-primary p-4 hover:text-white ">
-                            <a href="{{ route('user.profile', auth()->user()->id) }}"><i class="fa-solid fa-user fa-lg"></i>
-                                Profile</a>
-                        </div>
-                        <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
-                            <a href="{{ route('user.penukaranPoin') }}"><i class="fa-solid fa-hand-point-up fa-lg"></i>
-                                Tukar
-                                Poin</a>
-                        </div>
-                        <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
-                            <a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket fa-lg"></i> Logout</a>
-                        </div>
+                        @if (auth()->user()->hasRole('administrator'))
+                            <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
+                                <a href="{{ route('admin.index') }}"><i class="fa-solid fa-gauge fa-lg"></i> Dashboard</a>
+                            </div>
+                            <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
+                                <a href="{{ route('user.profile', auth()->user()->id) }}"><i
+                                        class="fa-solid fa-user fa-lg"></i>
+                                    Profile</a>
+                            </div>
+                            <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
+                                <a href="{{ route('user.penukaranPoin') }}"><i class="fa-solid fa-hand-point-up fa-lg"></i>
+                                    Tukar
+                                    Poin</a>
+                            </div>
+                            <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
+                                <a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket fa-lg"></i>
+                                    Logout</a>
+                            </div>
+                        @else
+                            <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
+                                <a href="{{ route('user.profile', auth()->user()->id) }}"><i
+                                        class="fa-solid fa-user fa-lg"></i>
+                                    Profile</a>
+                            </div>
+                            <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
+                                <a href="{{ route('user.penukaranPoin') }}"><i class="fa-solid fa-hand-point-up fa-lg"></i>
+                                    Tukar
+                                    Poin</a>
+                            </div>
+                            <div class="cursor-pointer hover:bg-primary p-4 hover:text-white">
+                                <a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket fa-lg"></i>
+                                    Logout</a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endauth
+
             @guest
                 <a href="{{ route('login') }}"
                     class="border-2 border-primary bg-primary text-white lg:px-5 lg:py-2 cursor-pointer rounded-lg px-2 py-1 text-sm lg:text-lg">Masuk</a>

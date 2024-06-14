@@ -35,6 +35,8 @@ class AuthController extends Controller
                 'user_id' => $user->id
             ]);
 
+            $user->assignRole('user');
+
             return redirect()->route('login')
                 ->with('success', 'User created successfully');
         } catch (\Exception $e) {
