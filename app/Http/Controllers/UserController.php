@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserCreateRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
@@ -17,6 +19,7 @@ class UserController extends Controller
 
     public function update(UserCreateRequest $request, $id)
     {
+        DB::beginTransaction();
         try {
             $user = User::findOrFail($id);
 
@@ -26,8 +29,10 @@ class UserController extends Controller
             $user->alamat = $request->input("alamat");
             $user->save();
 
+            DB::commit();
             return redirect()->route('user.profile')->with('success', 'User updated successfully');
         } catch (\Throwable $th) {
+            DB::rollBack();
             Log::error('Failed to update User', ['error' => $th->getMessage()]);
 
             return redirect()->back()->with([
@@ -35,5 +40,11 @@ class UserController extends Controller
                 'info' => $th->getMessage()
             ]);
         }
+    }
+
+    public function userResource(Request $request)
+    {
+        $user = User::first();
+        return new UserResource($user);
     }
 }

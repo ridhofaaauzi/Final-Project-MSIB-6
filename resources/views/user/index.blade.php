@@ -34,8 +34,8 @@
         <h1 class="lg:text-5xl uppercase font-semibold text-center mt-10 text-3xl">Layanan yang
             tersedia</h1>
         <div class="flex items-center justify-center container mx-auto mt-20">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <div class="rounded-xl border border-[#dcdcdc]">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="rounded-xl border border-[#dcdcdc] cursor-pointer hover:scale-105 hover:transition-all">
                     <div class="p-5 flex flex-col justify-center items-center text-center">
                         <div class="rounded-xl overflow-hidden mt-10">
                             <img src="{{ asset('assets/images/hero/Icon-artikel.png') }}" alt="icon-artikel">
@@ -49,7 +49,7 @@
                             informasi seputar daur ulang.</p>
                     </div>
                 </div>
-                <div class="rounded-xl border border-[#dcdcdc]">
+                <div class="rounded-xl border border-[#dcdcdc] cursor-pointer hover:scale-105 hover:transition-all">
                     <div class="p-5 flex flex-col justify-center items-center text-center">
                         <div class="rounded-xl overflow-hidden mt-10">
                             <img src="{{ asset('assets/images/hero/Icon-poin.png') }}" alt="icon-poin">
@@ -57,6 +57,17 @@
                         <h5 class="text-2xl md:text-3xl font-semibold mt-3">Poin Reward</h5>
                         <p class="text-[#404040] text-sm mt-3 max-w-72 mb-10">Setiap kali kamu melakukan pertukaran sampah,
                             kamu akan menerima poin yang bisa ditukarkan dengan hadiah-hadiah keren!</p>
+                    </div>
+                </div>
+                <div class="rounded-xl border border-[#dcdcdc] cursor-pointer hover:scale-105 hover:transition-all">
+                    <div class="p-5 flex flex-col justify-center items-center text-center">
+                        <div class="rounded-xl overflow-hidden mt-10">
+                            <img src="{{ asset('assets/images/hero/Icon-sampah.png') }}" alt="icon-sampah">
+                        </div>
+                        <h5 class="text-2xl md:text-3xl font-semibold mt-3">Tukar Sampah</h5>
+                        <p class="text-[#404040] text-sm mt-3 max-w-72 mb-10">Anda dapat mendaur ulang barang-barang yang
+                            tidak terpakai. Temukan nilai baru dalam setiap sampah yang Anda kumpulkan sambil berkontribusi
+                            pada upaya pelestarian lingkungan.</p>
                     </div>
                 </div>
             </div>
@@ -71,7 +82,7 @@
                     <div class="flex items-center justify-center container
                     mx-auto mt-20">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div class="rounded-xl bg-white w-48">
+                            <div class="rounded-xl bg-white w-48 cursor-pointer hover:scale-105 hover:transition-all">
                                 <div class="p-5 flex flex-col justify-center items-center text-center">
                                     <div class="rounded-xl overflow-hidden">
                                         <img src="{{ asset('assets/images/hero/Icon-kertas.png') }}" alt="icon-kertas">
@@ -79,7 +90,7 @@
                                     <p class="text-lg font-semibold mt-3">Kertas</p>
                                 </div>
                             </div>
-                            <div class="rounded-xl bg-white w-48">
+                            <div class="rounded-xl bg-white w-48 cursor-pointer hover:scale-105 hover:transition-all">
                                 <div class="p-5 flex flex-col justify-center items-center text-center">
                                     <div class="rounded-xl overflow-hidden">
                                         <img src="{{ asset('assets/images/hero/icon-plastik.png') }}" alt="icon-plastik">
@@ -87,7 +98,7 @@
                                     <p class="text-lg font-semibold mt-3">Plastik</p>
                                 </div>
                             </div>
-                            <div class="rounded-xl bg-white w-48">
+                            <div class="rounded-xl bg-white w-48 cursor-pointer hover:scale-105 hover:transition-all">
                                 <div class="p-5 flex flex-col justify-center items-center text-center">
                                     <div class="rounded-xl overflow-hidden">
                                         <img src="{{ asset('assets/images/hero/Icon-botol-kaca.png') }}"
@@ -96,7 +107,7 @@
                                     <p class="text-lg font-semibold mt-3">Botol Kaca</p>
                                 </div>
                             </div>
-                            <div class="rounded-xl bg-white w-48">
+                            <div class="rounded-xl bg-white w-48 cursor-pointer hover:scale-105 hover:transition-all">
                                 <div class="p-5 flex flex-col justify-center items-center text-center">
                                     <div class="rounded-xl overflow-hidden">
                                         <img src="{{ asset('assets/images/hero/icon-elektronik.png') }}"
@@ -105,7 +116,7 @@
                                     <p class="text-lg font-semibold mt-3">Elektronik</p>
                                 </div>
                             </div>
-                            <div class="rounded-xl bg-white w-48">
+                            <div class="rounded-xl bg-white w-48 cursor-pointer hover:scale-105 hover:transition-all">
                                 <div class="p-5 flex flex-col justify-center items-center text-center">
                                     <div class="rounded-xl overflow-hidden">
                                         <img src="{{ asset('assets/images/hero/icon-alluminium.png') }}"
@@ -114,7 +125,7 @@
                                     <p class="text-lg font-semibold mt-3">Aluminium</p>
                                 </div>
                             </div>
-                            <div class="rounded-xl bg-white w-48">
+                            <div class="rounded-xl bg-white w-48 cursor-pointer hover:scale-105 hover:transition-all">
                                 <div class="p-5 flex flex-col justify-center items-center text-center">
                                     <div class="rounded-xl overflow-hidden">
                                         <img src="{{ asset('assets/images/hero/icon-besi-logam.png') }}"
@@ -132,7 +143,8 @@
     <section>
         <div class="w-full h-fit lg:h-[750px] p-6 flex justify-between items-center">
             <div class="lg:w-1/2 flex justify-center items-center">
-                <img src="{{ asset('assets/images/hero/img-solusi.png') }}" alt="img-solusi" class="w-1/2 hidden lg:flex" />
+                <img src="{{ asset('assets/images/hero/img-solusi.png') }}" alt="img-solusi"
+                    class="w-1/2 hidden lg:flex" />
             </div>
             <div class="mb-14 lg:mb-0 lg:w-1/2">
                 <h1

@@ -17,7 +17,10 @@
                     <h1
                         class="xl:text-4xl font-bold uppercase max-w-xl leading-none text-center lg:text-left lg:leading-tight mb-5 text-2xl">
                         Tentang Kami</h1>
-                    <p class="xl:text-lg max-w-xl text-lg text-center lg:text-left">WasteCycle merupakan platform untuk
+                    <p class="xl:text-lg max-w-xl text-lg text-center lg:text-justify" style="line-height: 2;">
+                        WasteCycle
+                        merupakan
+                        platform untuk
                         melakukan pertukaran sampah yang dimana sampah tersebut bisa ditukarkan dan dari pertukaran tersebut
                         user akan mendapatkan sebuah reward poin. Selain itu terdapat juga artikel-artikel mengenai sampah.
                         Hal tersebut dilakukan untuk mengurangi sampah yang setiap tahunnya mengalami peningkatan oleh
@@ -32,7 +35,8 @@
         <h1 class="lg:text-5xl uppercase font-semibold text-center mt-10 text-3xl">Tim Kami</h1>
         <div class="flex items-center justify-center container mx-auto mt-20">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <div class="rounded-xl border border-[#dcdcdc] bg-[#92E3A9] bg-opacity-5">
+                <div
+                    class="rounded-xl border border-[#dcdcdc] bg-[#92E3A9] bg-opacity-5 cursor-pointer hover:scale-105 hover:transition-all">
                     <div class="p-5 flex flex-col justify-center items-center text-center">
                         <div class="rounded-xl overflow-hidden mt-10">
                             <img src="{{ asset('assets/images/tentang-kami/bg-profile.png') }}" alt="icon-profile">
@@ -42,7 +46,8 @@
                             Project Manager.</p>
                     </div>
                 </div>
-                <div class="rounded-xl border border-[#dcdcdc] bg-[#92E3A9] bg-opacity-5">
+                <div
+                    class="rounded-xl border border-[#dcdcdc] bg-[#92E3A9] bg-opacity-5 cursor-pointer hover:scale-105 hover:transition-all">
                     <div class="p-5 flex flex-col justify-center items-center text-center">
                         <div class="rounded-xl overflow-hidden mt-10">
                             <img src="{{ asset('assets/images/tentang-kami/bg-profile.png') }}" alt="icon-profile">
@@ -52,7 +57,8 @@
                             UI/UX Designer.</p>
                     </div>
                 </div>
-                <div class="rounded-xl border border-[#dcdcdc] bg-[#92E3A9] bg-opacity-5">
+                <div
+                    class="rounded-xl border border-[#dcdcdc] bg-[#92E3A9] bg-opacity-5 cursor-pointer hover:scale-105 hover:transition-all">
                     <div class="p-5 flex flex-col justify-center items-center text-center">
                         <div class="rounded-xl overflow-hidden mt-10">
                             <img src="{{ asset('assets/images/tentang-kami/bg-profile.png') }}" alt="icon-profile">
@@ -62,7 +68,8 @@
                             Devops.</p>
                     </div>
                 </div>
-                <div class="rounded-xl border border-[#dcdcdc] bg-[#92E3A9] bg-opacity-5">
+                <div
+                    class="rounded-xl border border-[#dcdcdc] bg-[#92E3A9] bg-opacity-5 cursor-pointer hover:scale-105 hover:transition-all">
                     <div class="p-5 flex flex-col justify-center items-center text-center">
                         <div class="rounded-xl overflow-hidden mt-10">
                             <img src="{{ asset('assets/images/tentang-kami/bg-profile.png') }}" alt="icon-profile">
@@ -72,7 +79,8 @@
                             Frontend Developer.</p>
                     </div>
                 </div>
-                <div class="rounded-xl border border-[#dcdcdc] bg-[#92E3A9] bg-opacity-5">
+                <div
+                    class="rounded-xl border border-[#dcdcdc] bg-[#92E3A9] bg-opacity-5 cursor-pointer hover:scale-105 hover:transition-all">
                     <div class="p-5 flex flex-col justify-center items-center text-center">
                         <div class="rounded-xl overflow-hidden mt-10">
                             <img src="{{ asset('assets/images/tentang-kami/bg-profile.png') }}" alt="icon-profile">

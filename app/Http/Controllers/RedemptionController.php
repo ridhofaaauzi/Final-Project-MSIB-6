@@ -8,6 +8,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class RedemptionController extends Controller
@@ -21,6 +22,7 @@ class RedemptionController extends Controller
 
     public function store($id)
     {
+        DB::beginTransaction();
         try {
             $user_id = Auth::user()->id;
             $reward = Reward::findOrFail($id);
@@ -47,8 +49,10 @@ class RedemptionController extends Controller
                 'reward_id' => $reward->id,
             ]);
 
+            DB::commit();
             return redirect()->route('user.penukaranPoin', compact('reward'))->with('success', 'Reward redeemed successfully');
         } catch (\Throwable $th) {
+            DB::rollBack();
             Log::error('Failed to redeem reward', ['error' => $th->getMessage()]);
             return redirect()->back()->withErrors($th->getMessage())->withInput();
         }

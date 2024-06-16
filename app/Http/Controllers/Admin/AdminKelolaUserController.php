@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Yajra\DataTables\DataTables;
 
 class AdminKelolaUserController extends Controller
 {
@@ -34,6 +36,7 @@ class AdminKelolaUserController extends Controller
 
     public function update(UserCreateRequest $request, $id)
     {
+        DB::beginTransaction();
         try {
             $user = User::findOrFail($id);
             $user->username = $request->input("username");
@@ -42,10 +45,11 @@ class AdminKelolaUserController extends Controller
             $user->nohp = $request->input("nohp");
             $user->save();
 
+            DB::commit();
             return redirect()->route('admin.kelolaUser')->with('success', 'User updated successfully');
         } catch (\Throwable $th) {
+            DB::rollBack();
             Log::error('Failed to update user', ['error' => $th->getMessage()]);
-
             return redirect()->back()->with([
                 'error' => 'Failed to update user',
                 'info' => $th->getMessage()

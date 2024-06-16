@@ -27,6 +27,8 @@
     <!-- Main Styling -->
     <link href="{{ asset('assets/css/soft-ui-dashboard-tailwind.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/soft-ui-dashboard-tailwind.min.css') }}" rel="stylesheet" />
+    {{-- data tables --}}
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.tailwindcss.css" /> --}}
     @vite('resources/css/app.css')
 </head>
 
@@ -40,5 +42,7 @@
 </body>
 <!-- main script file  -->
 <script src="{{ asset('assets/js/soft-ui-dashboard-tailwind.js') }}"></script>
+{{-- datatables js --}}
+
 
 </html>

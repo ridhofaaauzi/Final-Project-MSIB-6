@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Waste;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class PenukaranSampahController extends Controller
@@ -26,6 +27,7 @@ class PenukaranSampahController extends Controller
 
     public function store(PenukaranSampahCreateRequest $request, $id)
     {
+        DB::beginTransaction();
         try {
             $user_id = Auth::user()->id;
             $waste = Waste::findOrFail($id);
@@ -50,8 +52,10 @@ class PenukaranSampahController extends Controller
                 'waste_id' => $waste->id,
             ]);
 
+            DB::commit();
             return redirect()->route('user.penukaranSampah')->with('success', 'Transaction Waste added successfully');
         } catch (\Throwable $th) {
+            DB::rollBack();
             Log::error('Failed to add waste', ['error' => $th->getMessage()]);
 
             return redirect()->back()->withErrors($th->getMessage())->withInput();

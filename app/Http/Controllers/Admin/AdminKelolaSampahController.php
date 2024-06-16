@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SampahCreateRequest;
 use App\Models\Waste;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,6 +25,7 @@ class AdminKelolaSampahController extends Controller
 
     public function store(SampahCreateRequest $request)
     {
+        DB::beginTransaction();
         try {
             $imagePath = null;
             if ($request->hasFile('image')) {
@@ -36,8 +38,10 @@ class AdminKelolaSampahController extends Controller
                 'image' => $imagePath,
             ]);
 
+            DB::commit();
             return redirect()->route('admin.kelolaSampah')->with('success', 'Waste added successfully');
         } catch (\Throwable $th) {
+            DB::rollBack();
             Log::error('Failed to add waste', ['error' => $th->getMessage()]);
 
             return redirect()->back()->withErrors($th->getMessage())->withInput();
@@ -51,6 +55,7 @@ class AdminKelolaSampahController extends Controller
     }
     public function update(SampahCreateRequest $request, $id)
     {
+        DB::beginTransaction();
         try {
             $waste = Waste::findOrFail($id);
 
@@ -64,8 +69,10 @@ class AdminKelolaSampahController extends Controller
             $waste->poin = $request->input("poin");
             $waste->save();
 
+            DB::commit();
             return redirect()->route('admin.kelolaSampah')->with('success', 'Waste updated successfully');
         } catch (\Throwable $th) {
+            DB::rollBack();
             Log::error('Failed to update Waste', ['error' => $th->getMessage()]);
 
             return redirect()->back()->with([

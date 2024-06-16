@@ -52,17 +52,12 @@
                         <li>
                             <h4 class="text-lg font-bold">Sosial Media</h4>
                         </li>
-                        <li>
-                        </li>
-                        <li class="flex gap-5">
-                            <a href="#">
+                        <li class="flex gap-10">
+                            <a href="https://www.instagram.com/waste.cyclee/" target="_blank">
                                 <i class="fa-brands fa-instagram fa-2xl"></i>
                             </a>
-                            <a href="#">
+                            <a href="https://www.tiktok.com/@waste.cycle?lang=en" target="_blank">
                                 <i class="fa-brands fa-tiktok fa-2xl"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fa-brands fa-x-twitter fa-2xl"></i>
                             </a>
                         </li>
                     </ul>

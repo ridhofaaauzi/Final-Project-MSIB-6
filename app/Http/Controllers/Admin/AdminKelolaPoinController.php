@@ -7,6 +7,7 @@ use App\Http\Requests\PointCreateRequest;
 use App\Models\Point;
 use App\Models\Reward;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,6 +26,7 @@ class AdminKelolaPoinController extends Controller
 
     public function store(PointCreateRequest $request)
     {
+        DB::beginTransaction();
         try {
             $imagePath = null;
             if ($request->hasFile('image')) {
@@ -37,8 +39,10 @@ class AdminKelolaPoinController extends Controller
                 'image' => $imagePath,
             ]);
 
+            DB::commit();
             return redirect()->route('admin.kelolaPoin')->with('success', 'Reward added successfully');
         } catch (\Throwable $th) {
+            DB::rollBack();
             Log::error('Failed to add Reward', ['error' => $th->getMessage()]);
 
             return redirect()->back()->withErrors($th->getMessage())->withInput();
@@ -52,6 +56,7 @@ class AdminKelolaPoinController extends Controller
     }
     public function update(PointCreateRequest $request, $id)
     {
+        DB::beginTransaction();
         try {
             $reward = Reward::findOrFail($id);
 
@@ -65,8 +70,10 @@ class AdminKelolaPoinController extends Controller
             $reward->poin = $request->input("poin");
             $reward->save();
 
+            DB::commit();
             return redirect()->route('admin.kelolaPoin')->with('success', 'Reward updated successfully');
         } catch (\Throwable $th) {
+            DB::rollBack();
             Log::error('Failed to update Reward', ['error' => $th->getMessage()]);
 
             return redirect()->back()->with([

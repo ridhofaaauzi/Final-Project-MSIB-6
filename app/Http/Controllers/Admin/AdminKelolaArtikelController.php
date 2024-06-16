@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,6 +27,7 @@ class AdminKelolaArtikelController extends Controller
 
     public function store(ArtikelCreateRequest $request)
     {
+        DB::beginTransaction();
         try {
             $imagePath = null;
             if ($request->hasFile('image')) {
@@ -40,7 +42,10 @@ class AdminKelolaArtikelController extends Controller
                 'content' => $request->input("content"),
                 'image' => $imagePath,
             ]);
+            DB::commit();
+            return redirect()->route('admin.kelolaArtikel')->with('success', 'Post added successfully');
         } catch (\Throwable $th) {
+            DB::rollBack();
             Log::error('Failed to add post', ['error' => $th->getMessage()]);
 
             return redirect()->back()->with([
@@ -48,7 +53,6 @@ class AdminKelolaArtikelController extends Controller
                 'info' => $th->getMessage()
             ]);
         }
-        return redirect()->route('admin.kelolaArtikel')->with('success', 'Post added successfully');
     }
 
     public function edit($id)
@@ -59,6 +63,7 @@ class AdminKelolaArtikelController extends Controller
 
     public function update(ArtikelCreateRequest $request, $id)
     {
+        DB::beginTransaction();
         try {
             $post = Post::findOrFail($id);
 
@@ -72,8 +77,10 @@ class AdminKelolaArtikelController extends Controller
             $post->content = $request->input("content");
             $post->save();
 
+            DB::commit();
             return redirect()->route('admin.kelolaArtikel')->with('success', 'Post updated successfully');
         } catch (\Throwable $th) {
+            DB::rollBack();
             Log::error('Failed to update post', ['error' => $th->getMessage()]);
 
             return redirect()->back()->with([
