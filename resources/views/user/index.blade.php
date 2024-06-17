@@ -38,7 +38,7 @@
                 <div class="rounded-xl border border-[#dcdcdc] cursor-pointer hover:scale-105 hover:transition-all">
                     <div class="p-5 flex flex-col justify-center items-center text-center">
                         <div class="rounded-xl overflow-hidden mt-10">
-                            <img src="{{ asset('assets/images/hero/Icon-artikel.png') }}" alt="icon-artikel">
+                            <img src="{{ asset('assets/images/hero/icon-artikel.png') }}" alt="icon-artikel">
                         </div>
                         <h5 class="text-2xl md:text-3xl font-semibold mt-3">Artikel</h5>
                         <p class="text-[#404040] text-sm mt-3 max-w-72 mb-10">layanan yang diciptakan untuk menyediakan
@@ -52,7 +52,7 @@
                 <div class="rounded-xl border border-[#dcdcdc] cursor-pointer hover:scale-105 hover:transition-all">
                     <div class="p-5 flex flex-col justify-center items-center text-center">
                         <div class="rounded-xl overflow-hidden mt-10">
-                            <img src="{{ asset('assets/images/hero/Icon-poin.png') }}" alt="icon-poin">
+                            <img src="{{ asset('assets/images/hero/icon-poin.png') }}" alt="icon-poin">
                         </div>
                         <h5 class="text-2xl md:text-3xl font-semibold mt-3">Poin Reward</h5>
                         <p class="text-[#404040] text-sm mt-3 max-w-72 mb-10">Setiap kali kamu melakukan pertukaran sampah,
@@ -62,7 +62,7 @@
                 <div class="rounded-xl border border-[#dcdcdc] cursor-pointer hover:scale-105 hover:transition-all">
                     <div class="p-5 flex flex-col justify-center items-center text-center">
                         <div class="rounded-xl overflow-hidden mt-10">
-                            <img src="{{ asset('assets/images/hero/Icon-sampah.png') }}" alt="icon-sampah">
+                            <img src="{{ asset('assets/images/hero/icon-sampah.png') }}" alt="icon-sampah">
                         </div>
                         <h5 class="text-2xl md:text-3xl font-semibold mt-3">Tukar Sampah</h5>
                         <p class="text-[#404040] text-sm mt-3 max-w-72 mb-10">Anda dapat mendaur ulang barang-barang yang
@@ -85,7 +85,7 @@
                             <div class="rounded-xl bg-white w-48 cursor-pointer hover:scale-105 hover:transition-all">
                                 <div class="p-5 flex flex-col justify-center items-center text-center">
                                     <div class="rounded-xl overflow-hidden">
-                                        <img src="{{ asset('assets/images/hero/Icon-kertas.png') }}" alt="icon-kertas">
+                                        <img src="{{ asset('assets/images/hero/icon-kertas.png') }}" alt="icon-kertas">
                                     </div>
                                     <p class="text-lg font-semibold mt-3">Kertas</p>
                                 </div>
@@ -101,7 +101,7 @@
                             <div class="rounded-xl bg-white w-48 cursor-pointer hover:scale-105 hover:transition-all">
                                 <div class="p-5 flex flex-col justify-center items-center text-center">
                                     <div class="rounded-xl overflow-hidden">
-                                        <img src="{{ asset('assets/images/hero/Icon-botol-kaca.png') }}"
+                                        <img src="{{ asset('assets/images/hero/icon-botol-kaca.png') }}"
                                             alt="icon-botol-kaca">
                                     </div>
                                     <p class="text-lg font-semibold mt-3">Botol Kaca</p>
