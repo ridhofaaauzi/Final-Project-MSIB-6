@@ -29,6 +29,7 @@
     <link href="{{ asset('assets/css/soft-ui-dashboard-tailwind.min.css') }}" rel="stylesheet" />
     {{-- data tables --}}
     {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.tailwindcss.css" /> --}}
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/Logo WasteCycle-2.png') }}">
     @vite('resources/css/app.css')
 </head>
 
